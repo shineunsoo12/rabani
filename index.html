@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio — TKJ | SMK Plus Pelita Nusantara</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        accent: '#ff005e',
+                        tkj: '#00e5ff',
+                        tkjDark: '#0091a7',
+                        tkjGreen: '#00ff88',
+                        matrix: '#0a0f0d',
+                        terminal: '#0d1117',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="noise grid-bg">
+
+    <!-- ==================== IP ADDRESS DECORATIONS ==================== -->
+    <div class="ip-deco top-[10%] left-[5%] hidden lg:block">192.168.1.1</div>
+    <div class="ip-deco top-[25%] right-[8%] hidden lg:block">10.0.0.1</div>
+    <div class="ip-deco top-[50%] left-[3%] hidden lg:block">172.16.0.1</div>
+    <div class="ip-deco top-[70%] right-[5%] hidden lg:block">255.255.255.0</div>
+    <div class="ip-deco top-[85%] left-[7%] hidden lg:block">192.168.100.1</div>
+    <div class="ip-deco top-[40%] right-[3%] hidden lg:block">subnet /24</div>
+
+    <!-- ==================== FLOATING NETWORK NODES ==================== -->
+    <div class="node top-[20%] left-[15%] hidden lg:block" style="animation-delay:0s"></div>
+    <div class="node top-[45%] right-[12%] hidden lg:block" style="animation-delay:0.7s"></div>
+    <div class="node top-[75%] left-[20%] hidden lg:block" style="animation-delay:1.4s"></div>
+    <div class="node top-[60%] right-[25%] hidden lg:block" style="animation-delay:0.3s"></div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg border border-tkj/30 bg-tkj/5 flex items-center justify-center group-hover:border-tkj/60 group-hover:bg-tkj/10 transition-all duration-300">
+                    <i data-lucide="network" class="w-5 h-5 text-tkj"></i>
+                </div>
+                <div>
+                    <span class="text-sm font-semibold tracking-tight">TKJ<span class="text-tkj">.</span>PORTFOLIO</span>
+                    <p class="text-[9px] font-mono text-neutral-500 tracking-widest uppercase">XI TKJ 1</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#hero" class="nav-link text-sm font-medium text-neutral-400 active">Beranda</a>
+                <a href="#about" class="nav-link text-sm font-medium text-neutral-400">Tentang</a>
+                <a href="#skills" class="nav-link text-sm font-medium text-neutral-400">Keahlian</a>
+                <a href="#projects" class="nav-link text-sm font-medium text-neutral-400">Proyek</a>
+                <a href="#sertifikat" class="nav-link text-sm font-medium text-neutral-400">Sertifikat</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-neutral-400">Kontak</a>
+            </div>
+
+            <!-- Status Badge -->
+            <div class="hidden md:flex items-center gap-3">
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-tkjGreen/20 bg-tkjGreen/5">
+                    <div class="w-1.5 h-1.5 rounded-full bg-tkjGreen animate-pulse"></div>
+                    <span class="text-[10px] font-mono text-tkjGreen tracking-wider">ONLINE</span>
+                </div>
+                <a href="#contact" class="px-5 py-2 bg-tkj text-black text-xs font-semibold rounded-lg hover:bg-white transition-colors duration-300">
+                    HUBUNGI
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:border-tkj/30 transition-colors">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== MOBILE MENU ==================== -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-[#111]/95 backdrop-blur-xl z-[60] border-l border-white/5 p-8 flex flex-col">
+        <button id="closeMenu" class="self-end w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:border-tkj/30 transition-colors mb-8">
+            <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div class="flex flex-col gap-4">
+            <a href="#hero" class="mobile-link text-lg font-medium text-neutral-300 hover:text-tkj transition-colors py-2">Beranda</a>
+            <a href="#about" class="mobile-link text-lg font-medium text-neutral-300 hover:text-tkj transition-colors py-2">Tentang</a>
+            <a href="#skills" class="mobile-link text-lg font-medium text-neutral-300 hover:text-tkj transition-colors py-2">Keahlian</a>
+            <a href="#projects" class="mobile-link text-lg font-medium text-neutral-300 hover:text-tkj transition-colors py-2">Proyek</a>
+            <a href="#sertifikat" class="mobile-link text-lg font-medium text-neutral-300 hover:text-tkj transition-colors py-2">Sertifikat</a>
+            <a href="#contact" class="mobile-link text-lg font-medium text-neutral-300 hover:text-tkj transition-colors py-2">Kontak</a>
+        </div>
+        <div class="mt-auto flex items-center gap-2 px-3 py-2 rounded-full border border-tkjGreen/20 bg-tkjGreen/5 w-fit">
+            <div class="w-1.5 h-1.5 rounded-full bg-tkjGreen animate-pulse"></div>
+            <span class="text-[10px] font-mono text-tkjGreen tracking-wider">STATUS: ONLINE</span>
+        </div>
+    </div>
+    <div id="menuOverlay" class="fixed inset-0 bg-black/50 z-[55] hidden"></div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="min-h-screen flex items-center relative overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-tkj/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-accent/3 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Left -->
+                <div>
+                    <!-- Badge -->
+                    <div class="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-tkj/20 bg-tkj/5 mb-8">
+                        <i data-lucide="router" class="w-3.5 h-3.5 text-tkj"></i>
+                        <span class="text-xs font-medium text-tkj tracking-wider uppercase">SMK Plus Pelita Nusantara</span>
+                    </div>
+
+                    <!-- Terminal Intro -->
+                    <div class="terminal rounded-xl overflow-hidden mb-8 animate-fade-in-up delay-100">
+                        <div class="terminal-header px-4 py-2.5 flex items-center gap-2">
+                            <div class="terminal-dot bg-red-500"></div>
+                            <div class="terminal-dot bg-yellow-500"></div>
+                            <div class="terminal-dot bg-green-500"></div>
+                            <span class="text-[10px] font-mono text-neutral-500 ml-2">bash — 80×24</span>
+                        </div>
+                        <div class="p-4 text-sm font-mono leading-relaxed">
+                            <p class="text-neutral-500">$ whoami</p>
+                            <p class="text-tkjGreen mt-1">siswa_tkj@pelita-nusantara:~$</p>
+                            <p class="text-neutral-500 mt-3">$ cat /etc/profil.txt</p>
+                            <p class="text-white mt-1">Nama : <span class="text-tkj">[Nama Kamu]</span></p>
+                            <p class="text-white">Kelas : <span class="text-tkj">XI TKJ 1</span></p>
+                            <p class="text-white">Jurusan : <span class="text-tkj">Teknik Komputer & Jaringan</span></p>
+                            <p class="text-neutral-500 mt-3">$ <span class="animate-blink text-tkj">_</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Heading -->
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mb-6 animate-fade-in-up delay-200">
+                        Future<br>
+                        <span class="glow-tkj text-tkj">Network</span><br>
+                        Engineer<span class="text-tkj">.</span>
+                    </h1>
+
+                    <!-- Description -->
+                    <p class="text-lg text-neutral-400 font-light leading-relaxed max-w-lg mb-8 animate-fade-in-up delay-300">
+                        Siswa SMK Plus Pelita Nusantara jurusan TKJ yang berfokus pada
+                        <span class="text-neutral-200">jaringan komputer</span>,
+                        <span class="text-neutral-200">administrasi server</span>, dan
+                        <span class="text-neutral-200">keamanan jaringan</span>.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 animate-fade-in-up delay-400">
+                        <a href="#skills" class="group px-8 py-3.5 bg-tkj text-black text-sm font-semibold rounded-xl hover:bg-white transition-all duration-300 flex items-center gap-2">
+                            Lihat Keahlian
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#projects" class="px-8 py-3.5 border border-white/10 text-sm font-medium rounded-xl hover:border-tkj/30 hover:bg-tkj/5 transition-all duration-300">
+                            Proyek Saya
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="flex flex-wrap gap-8 mt-10 animate-fade-in-up delay-500">
+                        <div>
+                            <p class="text-2xl font-semibold text-white counter" data-target="15">0</p>
+                            <p class="text-xs text-neutral-500 mt-1">Proyek Jaringan</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-semibold text-white counter" data-target="8">0</p>
+                            <p class="text-xs text-neutral-500 mt-1">Sertifikat</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-semibold text-white counter" data-target="3">0</p>
+                            <p class="text-xs text-neutral-500 mt-1">Tahun Belajar TKJ</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-semibold text-tkj font-mono">/24</p>
+                            <p class="text-xs text-neutral-500 mt-1">Subnet Mask</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right — Network Topology Visual -->
+                <div class="relative animate-fade-in-up delay-300">
+                    <div class="relative animate-float">
+                        <div class="terminal rounded-2xl overflow-hidden box-glow-tkj">
+                            <div class="terminal-header px-4 py-3 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <div class="terminal-dot bg-red-500"></div>
+                                    <div class="terminal-dot bg-yellow-500"></div>
+                                    <div class="terminal-dot bg-green-500"></div>
+                                    <span class="text-[10px] font-mono text-neutral-500 ml-2">network-topology.map</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-tkj/60">LIVE</span>
+                            </div>
+                            <div class="p-6 relative scanline overflow-hidden" style="min-height: 360px;">
+                                <!-- SVG Network Topology -->
+                                <svg viewBox="0 0 400 300" class="w-full" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Connection Lines -->
+                                    <line x1="200" y1="50" x2="80" y2="150" stroke="rgba(0,229,255,0.2)" stroke-width="1.5" stroke-dasharray="4,4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1s" repeatCount="indefinite"/>
+                                    </line>
+                                    <line x1="200" y1="50" x2="320" y2="150" stroke="rgba(0,229,255,0.2)" stroke-width="1.5" stroke-dasharray="4,4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1s" repeatCount="indefinite"/>
+                                    </line>
+                                    <line x1="80" y1="150" x2="80" y2="250" stroke="rgba(0,255,136,0.2)" stroke-width="1.5" stroke-dasharray="4,4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1s" repeatCount="indefinite"/>
+                                    </line>
+                                    <line x1="80" y1="150" x2="200" y2="250" stroke="rgba(0,255,136,0.2)" stroke-width="1.5" stroke-dasharray="4,4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1s" repeatCount="indefinite"/>
+                                    </line>
+                                    <line x1="320" y1="150" x2="200" y2="250" stroke="rgba(0,255,136,0.2)" stroke-width="1.5" stroke-dasharray="4,4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1s" repeatCount="indefinite"/>
+                                    </line>
+                                    <line x1="320" y1="150" x2="320" y2="250" stroke="rgba(0,255,136,0.2)" stroke-width="1.5" stroke-dasharray="4,4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1s" repeatCount="indefinite"/>
+                                    </line>
+
+                                    <!-- Router -->
+                                    <g transform="translate(200,50)">
+                                        <circle r="18" fill="rgba(0,229,255,0.1)" stroke="#00e5ff" stroke-width="1.5"/>
+                                        <text text-anchor="middle" dy="5" fill="#00e5ff" font-size="14">⬡</text>
+                                        <text text-anchor="middle" dy="35" fill="rgba(0,229,255,0.6)" font-size="8" font-family="JetBrains Mono">ROUTER</text>
+                                        <text text-anchor="middle" dy="46" fill="rgba(0,229,255,0.3)" font-size="7" font-family="JetBrains Mono">192.168.1.1</text>
+                                    </g>
+
+                                    <!-- Switch Left -->
+                                    <g transform="translate(80,150)">
+                                        <rect x="-22" y="-12" width="44" height="24" rx="4" fill="rgba(0,229,255,0.08)" stroke="#00e5ff" stroke-width="1"/>
+                                        <text text-anchor="middle" dy="4" fill="#00e5ff" font-size="10" font-family="JetBrains Mono">SW-1</text>
+                                        <text text-anchor="middle" dy="28" fill="rgba(0,229,255,0.5)" font-size="7" font-family="JetBrains Mono">SWITCH</text>
+                                        <text text-anchor="middle" dy="39" fill="rgba(0,229,255,0.3)" font-size="7" font-family="JetBrains Mono">VLAN 10</text>
+                                    </g>
+
+                                    <!-- Switch Right -->
+                                    <g transform="translate(320,150)">
+                                        <rect x="-22" y="-12" width="44" height="24" rx="4" fill="rgba(0,229,255,0.08)" stroke="#00e5ff" stroke-width="1"/>
+                                        <text text-anchor="middle" dy="4" fill="#00e5ff" font-size="10" font-family="JetBrains Mono">SW-2</text>
+                                        <text text-anchor="middle" dy="28" fill="rgba(0,229,255,0.5)" font-size="7" font-family="JetBrains Mono">SWITCH</text>
+                                        <text text-anchor="middle" dy="39" fill="rgba(0,229,255,0.3)" font-size="7" font-family="JetBrains Mono">VLAN 20</text>
+                                    </g>
+
+                                    <!-- PCs -->
+                                    <g transform="translate(80,250)">
+                                        <rect x="-14" y="-10" width="28" height="20" rx="3" fill="rgba(0,255,136,0.08)" stroke="#00ff88" stroke-width="1"/>
+                                        <text text-anchor="middle" dy="4" fill="#00ff88" font-size="10">🖥</text>
+                                        <text text-anchor="middle" dy="22" fill="rgba(0,255,136,0.4)" font-size="6" font-family="JetBrains Mono">.10</text>
+                                    </g>
+                                    <g transform="translate(200,250)">
+                                        <rect x="-14" y="-10" width="28" height="20" rx="3" fill="rgba(0,255,136,0.08)" stroke="#00ff88" stroke-width="1"/>
+                                        <text text-anchor="middle" dy="4" fill="#00ff88" font-size="10">🖥</text>
+                                        <text text-anchor="middle" dy="22" fill="rgba(0,255,136,0.4)" font-size="6" font-family="JetBrains Mono">.20</text>
+                                    </g>
+                                    <g transform="translate(320,250)">
+                                        <rect x="-14" y="-10" width="28" height="20" rx="3" fill="rgba(0,255,136,0.08)" stroke="#00ff88" stroke-width="1"/>
+                                        <text text-anchor="middle" dy="4" fill="#00ff88" font-size="10">🖥</text>
+                                        <text text-anchor="middle" dy="22" fill="rgba(0,255,136,0.4)" font-size="6" font-family="JetBrains Mono">.30</text>
+                                    </g>
+
+                                    <!-- Data Packets -->
+                                    <circle r="3" fill="#00e5ff" opacity="0.8">
+                                        <animateMotion dur="2s" repeatCount="indefinite" path="M200,50 L80,150"/>
+                                    </circle>
+                                    <circle r="3" fill="#00e5ff" opacity="0.8">
+                                        <animateMotion dur="2s" repeatCount="indefinite" path="M200,50 L320,150" begin="0.5s"/>
+                                    </circle>
+                                    <circle r="2.5" fill="#00ff88" opacity="0.8">
+                                        <animateMotion dur="2.5s" repeatCount="indefinite" path="M80,150 L200,250" begin="1s"/>
+                                    </circle>
+                                    <circle r="2.5" fill="#00ff88" opacity="0.8">
+                                        <animateMotion dur="2.5s" repeatCount="indefinite" path="M320,150 L320,250" begin="0.8s"/>
+                                    </circle>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Floating Mini Cards -->
+                        <div class="absolute -top-4 -right-4 px-3 py-2 rounded-lg bg-[#111]/90 border border-tkjGreen/20 backdrop-blur-sm animate-float" style="animation-delay: 0.5s;">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-tkjGreen animate-pulse"></div>
+                                <span class="text-[10px] font-mono text-tkjGreen">PING 192.168.1.1 — OK</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 px-3 py-2 rounded-lg bg-[#111]/90 border border-tkj/20 backdrop-blur-sm animate-float" style="animation-delay: 1s;">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="shield-check" class="w-3 h-3 text-tkj"></i>
+                                <span class="text-[10px] font-mono text-tkj">FIREWALL: ACTIVE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in-up delay-700">
+            <span class="text-[10px] font-mono text-neutral-500 tracking-widest uppercase">Scroll Down</span>
+            <div class="w-5 h-8 rounded-full border border-white/10 flex items-start justify-center p-1">
+                <div class="w-1 h-2 rounded-full bg-tkj animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left -->
+                <div class="reveal">
+                    <div class="relative">
+                        <div class="rounded-2xl overflow-hidden border border-white/5 box-glow-tkj">
+                            <img src="https://picsum.photos/seed/tkj-lab-network/600/700.jpg" alt="TKJ Lab" class="w-full h-[400px] lg:h-[500px] object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 md:right-6 bg-[#111]/95 backdrop-blur-xl border border-tkj/20 rounded-xl p-5 box-glow-tkj">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-tkj/10 flex items-center justify-center">
+                                    <i data-lucide="graduation-cap" class="w-5 h-5 text-tkj"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold">XI TKJ 1</p>
+                                    <p class="text-[10px] text-neutral-500 font-mono">2024/2025</p>
+                                </div>
+                            </div>
+                            <div class="w-full bg-white/5 rounded-full h-1.5">
+                                <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="75%"></div>
+                            </div>
+                            <p class="text-[10px] text-neutral-500 mt-2 font-mono">Progress Pembelajaran: 75%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right -->
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge-tkj mb-6">
+                        <i data-lucide="user" class="w-3 h-3"></i>
+                        <span class="text-[10px] font-medium tracking-wider uppercase">Tentang Saya</span>
+                    </div>
+
+                    <h2 class="text-3xl md:text-5xl font-semibold tracking-tight mb-6">
+                        Mengenal Lebih<br>Dekat<span class="text-tkj">.</span>
+                    </h2>
+
+                    <p class="text-neutral-400 font-light leading-relaxed mb-6">
+                        Saya adalah siswa kelas <span class="text-white font-medium">XI TKJ 1</span> di
+                        <span class="text-white font-medium">SMK Plus Pelita Nusantara</span>. Sejak kelas X, saya telah mendalami
+                        dunia jaringan komputer mulai dari crimping kabel, konfigurasi router, hingga administrasi server.
+                    </p>
+                    <p class="text-neutral-400 font-light leading-relaxed mb-8">
+                        Saya percaya bahwa pemahaman mendalam tentang infrastruktur jaringan adalah fondasi utama
+                        di era digital. Tujuan saya adalah menjadi <span class="text-tkj font-medium">Network Engineer</span> profesional
+                        yang mampu merancang, mengimplementasikan, dan mengamankan jaringan skala enterprise.
+                    </p>
+
+                    <!-- Info Grid -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                            <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-1">Sekolah</p>
+                            <p class="text-sm font-medium">SMK Plus Pelita Nusantara</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                            <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-1">Jurusan</p>
+                            <p class="text-sm font-medium">Teknik Komputer & Jaringan</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                            <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-1">Kelas</p>
+                            <p class="text-sm font-medium">XI TKJ 1</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                            <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-1">Tahun Ajaran</p>
+                            <p class="text-sm font-medium">2024 / 2025</p>
+                        </div>
+                    </div>
+
+                    <a href="#skills" class="group inline-flex items-center gap-2 text-tkj text-sm font-medium hover:gap-3 transition-all">
+                        Lihat keahlian saya
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section id="skills" class="py-24 md:py-32 relative">
+        <div class="absolute top-1/2 left-0 w-[400px] h-[400px] bg-tkj/3 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge-tkj mb-6">
+                    <i data-lucide="cpu" class="w-3 h-3"></i>
+                    <span class="text-[10px] font-medium tracking-wider uppercase">Keahlian TKJ</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
+                    Skill & Kompetensi<span class="text-tkj">.</span>
+                </h2>
+                <p class="text-neutral-400 font-light max-w-2xl mx-auto">
+                    Kemampuan teknis yang saya kuasai selama menjalani pembelajaran di jurusan TKJ,
+                    mulai dari fisik hingga logika jaringan.
+                </p>
+            </div>
+
+            <!-- Skill Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 reveal" style="transition-delay: 100ms;">
+                <button class="tab-btn active px-5 py-2 rounded-lg text-sm font-medium" data-tab="jaringan">
+                    <i data-lucide="network" class="w-4 h-4 inline mr-1.5"></i>Jaringan
+                </button>
+                <button class="tab-btn px-5 py-2 rounded-lg text-sm font-medium text-neutral-400" data-tab="server">
+                    <i data-lucide="server" class="w-4 h-4 inline mr-1.5"></i>Server
+                </button>
+                <button class="tab-btn px-5 py-2 rounded-lg text-sm font-medium text-neutral-400" data-tab="hardware">
+                    <i data-lucide="hard-drive" class="w-4 h-4 inline mr-1.5"></i>Hardware
+                </button>
+                <button class="tab-btn px-5 py-2 rounded-lg text-sm font-medium text-neutral-400" data-tab="keamanan">
+                    <i data-lucide="shield" class="w-4 h-4 inline mr-1.5"></i>Keamanan
+                </button>
+                <button class="tab-btn px-5 py-2 rounded-lg text-sm font-medium text-neutral-400" data-tab="tools">
+                    <i data-lucide="wrench" class="w-4 h-4 inline mr-1.5"></i>Tools
+                </button>
+            </div>
+
+            <!-- Tab: Jaringan -->
+            <div id="tab-jaringan" class="tab-content">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-tkj/10 flex items-center justify-center mb-5">
+                            <i data-lucide="cable" class="w-6 h-6 text-tkj"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Crimping Kabel UTP</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Membuat kabel straight-through & crossover dengan standar T568A/T568B menggunakan crimping tool.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-tkj">95%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-tkj/10 flex items-center justify-center mb-5">
+                            <i data-lucide="router" class="w-6 h-6 text-tkj"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Konfigurasi MikroTik</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Routing, NAT, DHCP Server, Firewall, Bandwidth Management via Winbox & CLI RouterOS.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-tkj">88%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-tkj/10 flex items-center justify-center mb-5">
+                            <i data-lucide="git-branch" class="w-6 h-6 text-tkj"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">VLAN & Switching</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Konfigurasi VLAN, Trunking, Inter-VLAN Routing pada manageable switch.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-tkj">82%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="82%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-tkj/10 flex items-center justify-center mb-5">
+                            <i data-lucide="calculator" class="w-6 h-6 text-tkj"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Subnetting & IP Addressing</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Pembagian jaringan dengan metode CIDR, VLSM, dan FLSM untuk efisiensi alamat IP.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-tkj">90%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-tkj/10 flex items-center justify-center mb-5">
+                            <i data-lucide="globe" class="w-6 h-6 text-tkj"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">TCP/IP & OSI Model</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Pemahaman 7 lapisan OSI, protokol TCP/UDP, DNS, HTTP, FTP, SSH, dan Telnet.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-tkj">85%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-tkj/10 flex items-center justify-center mb-5">
+                            <i data-lucide="wifi" class="w-6 h-6 text-tkj"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Jaringan Wireless</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Konfigurasi Access Point, SSID management, WPA2/WPA3 security, dan wireless bridging.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-tkj">78%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="78%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Server -->
+            <div id="tab-server" class="tab-content hidden">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-tkjGreen/10 flex items-center justify-center mb-5">
+                            <i data-lucide="server" class="w-6 h-6 text-tkjGreen"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Windows Server</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Instalasi AD DS, DHCP Server, DNS Server, File Sharing, dan GPO pada Windows Server 2019/2022.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-tkjGreen">80%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-tkjGreen/10 flex items-center justify-center mb-5">
+                            <i data-lucide="terminal" class="w-6 h-6 text-tkjGreen"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Linux Server</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Administrasi server berbasis Ubuntu/Debian: Web Server (Apache/Nginx), SSH, dan package management.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-tkjGreen">72%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="72%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-tkjGreen/10 flex items-center justify-center mb-5">
+                            <i data-lucide="box" class="w-6 h-6 text-tkjGreen"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Virtualisasi</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Penggunaan VirtualBox & VMware untuk membuat lab virtual, snapshot, dan manajemen VM.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-tkjGreen">85%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Hardware -->
+            <div id="tab-hardware" class="tab-content hidden">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+                            <i data-lucide="monitor" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Rakit PC & Laptop</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Perakitan PC dari komponen, instalasi OS, driver, dan troubleshooting hardware.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-accent">88%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+                            <i data-lucide="plug" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Instalasi Jaringan Fisik</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Penarikan kabel UTP/FO, pemasangan wall plate, patch panel, dan rack server.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-accent">82%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="82%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+                            <i data-lucide="printer" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Periferal & Printer</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Instalasi dan konfigurasi printer lokal/network, scanner, dan perangkat periferal lainnya.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-accent">75%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Keamanan -->
+            <div id="tab-keamanan" class="tab-content hidden">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
+                            <i data-lucide="shield-alert" class="w-6 h-6 text-red-400"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Firewall & Filter</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Konfigurasi firewall MikroTik, port filtering, address list, dan layer-7 protocol filter.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-red-400">78%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="78%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
+                            <i data-lucide="scan-eye" class="w-6 h-6 text-red-400"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Dasar Pentesting</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Penggunaan Nmap untuk scanning port, Wireshark untuk packet analysis, dan pengenalan Kali Linux.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-red-400">60%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="60%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-6">
+                        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
+                            <i data-lucide="lock" class="w-6 h-6 text-red-400"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Keamanan Wireless</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Pengamanan jaringan WiFi dengan WPA2-Enterprise, MAC filtering, dan hidden SSID.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">Proficiency</span>
+                            <span class="text-[10px] font-mono text-red-400">70%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-1.5">
+                            <div class="progress-bar h-1.5 rounded-full" style="width: 0%" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Tools -->
+            <div id="tab-tools" class="tab-content hidden">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-5 text-center">
+                        <div class="w-14 h-14 rounded-xl bg-tkj/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="box" class="w-7 h-7 text-tkj"></i>
+                        </div>
+                        <p class="text-sm font-semibold">VirtualBox</p>
+                        <p class="text-[10px] text-neutral-500 mt-1 font-mono">Virtualisasi</p>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-5 text-center">
+                        <div class="w-14 h-14 rounded-xl bg-tkj/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="layout-dashboard" class="w-7 h-7 text-tkj"></i>
+                        </div>
+                        <p class="text-sm font-semibold">Winbox</p>
+                        <p class="text-[10px] text-neutral-500 mt-1 font-mono">MikroTik GUI</p>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-5 text-center">
+                        <div class="w-14 h-14 rounded-xl bg-tkj/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="activity" class="w-7 h-7 text-tkj"></i>
+                        </div>
+                        <p class="text-sm font-semibold">Wireshark</p>
+                        <p class="text-[10px] text-neutral-500 mt-1 font-mono">Packet Analyzer</p>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-5 text-center">
+                        <div class="w-14 h-14 rounded-xl bg-tkj/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="radar" class="w-7 h-7 text-tkj"></i>
+                        </div>
+                        <p class="text-sm font-semibold">Nmap</p>
+                        <p class="text-[10px] text-neutral-500 mt-1 font-mono">Network Scanner</p>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-5 text-center">
+                        <div class="w-14 h-14 rounded-xl bg-tkj/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="terminal-square" class="w-7 h-7 text-tkj"></i>
+                        </div>
+                        <p class="text-sm font-semibold">PuTTY</p>
+                        <p class="text-[10px] text-neutral-500 mt-1 font-mono">SSH Client</p>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-5 text-center">
+                        <div class="w-14 h-14 rounded-xl bg-tkj/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="file-code" class="w-7 h-7 text-tkj"></i>
+                        </div>
+                        <p class="text-sm font-semibold">Packet Tracer</p>
+                        <p class="text-[10px] text-neutral-500 mt-1 font-mono">Cisco Simulator</p>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-5 text-center">
+                        <div class="w-14 h-14 rounded-xl bg-tkj/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="image" class="w-7 h-7 text-tkj"></i>
+                        </div>
+                        <p class="text-sm font-semibold">Rufus</p>
+                        <p class="text-[10px] text-neutral-500 mt-1 font-mono">Bootable USB</p>
+                    </div>
+                    <div class="skill-card rounded-2xl bg-white/[0.02] p-5 text-center">
+                        <div class="w-14 h-14 rounded-xl bg-tkj/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="grip" class="w-7 h-7 text-tkj"></i>
+                        </div>
+                        <p class="text-sm font-semibold">Crimping Tool</p>
+                        <p class="text-[10px] text-neutral-500 mt-1 font-mono">Kabel UTP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section id="projects" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge-tkj mb-6">
+                    <i data-lucide="folder-open" class="w-3 h-3"></i>
+                    <span class="text-[10px] font-medium tracking-wider uppercase">Proyek Praktik</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
+                    Proyek Jaringan<span class="text-tkj">.</span>
+                </h2>
+                <p class="text-neutral-400 font-light max-w-2xl mx-auto">
+                    Dokumentasi proyek praktik yang telah saya kerjakan selama pembelajaran di lab TKJ.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="project-card rounded-2xl bg-white/[0.02] overflow-hidden group reveal">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://picsum.photos/seed/mikrotik-router-config/600/400.jpg" alt="MikroTik" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-tkj/10 text-tkj border border-tkj/20">MikroTik</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-neutral-400 border border-white/5">Routing</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Konfigurasi Router MikroTik</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Setup NAT, DHCP Server, Firewall filter, dan Queue Tree untuk manajemen bandwidth di lab TKJ.</p>
+                        <div class="flex items-center gap-2 text-tkj text-sm font-medium group-hover:gap-3 transition-all">
+                            <span>Lihat Detail</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card rounded-2xl bg-white/[0.02] overflow-hidden group reveal" style="transition-delay: 100ms;">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://picsum.photos/seed/vlan-switching-lab/600/400.jpg" alt="VLAN" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-tkjGreen/10 text-tkjGreen border border-tkjGreen/20">Switching</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-neutral-400 border border-white/5">VLAN</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Implementasi VLAN</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Membagi jaringan lab menjadi 3 VLAN (Guru, Siswa, Admin) dengan Inter-VLAN Routing.</p>
+                        <div class="flex items-center gap-2 text-tkjGreen text-sm font-medium group-hover:gap-3 transition-all">
+                            <span>Lihat Detail</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card rounded-2xl bg-white/[0.02] overflow-hidden group reveal" style="transition-delay: 200ms;">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://picsum.photos/seed/windows-server-ad/600/400.jpg" alt="Windows Server" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Server</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-neutral-400 border border-white/5">AD DS</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Windows Server AD DS</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Instalasi Active Directory Domain Services untuk manajemen user dan kebijakan keamanan terpusat.</p>
+                        <div class="flex items-center gap-2 text-blue-400 text-sm font-medium group-hover:gap-3 transition-all">
+                            <span>Lihat Detail</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card rounded-2xl bg-white/[0.02] overflow-hidden group reveal">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://picsum.photos/seed/cable-crimping-utp/600/400.jpg" alt="Crimping" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">Hardware</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-neutral-400 border border-white/5">Kabel</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Instalasi Kabel 30 Titik</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Proyek penarikan dan crimping kabel UTP Cat6 untuk 30 titik jaringan di ruang kelas baru.</p>
+                        <div class="flex items-center gap-2 text-accent text-sm font-medium group-hover:gap-3 transition-all">
+                            <span>Lihat Detail</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card rounded-2xl bg-white/[0.02] overflow-hidden group reveal" style="transition-delay: 100ms;">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://picsum.photos/seed/linux-webserver-nginx/600/400.jpg" alt="Linux Server" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">Linux</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-neutral-400 border border-white/5">Web Server</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Web Server Ubuntu + Nginx</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Setup web server menggunakan Nginx pada Ubuntu Server dengan konfigurasi virtual host dan SSL.</p>
+                        <div class="flex items-center gap-2 text-orange-400 text-sm font-medium group-hover:gap-3 transition-all">
+                            <span>Lihat Detail</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card rounded-2xl bg-white/[0.02] overflow-hidden group reveal" style="transition-delay: 200ms;">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://picsum.photos/seed/packet-tracer-sim/600/400.jpg" alt="Packet Tracer" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Simulasi</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-neutral-400 border border-white/5">Cisco</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Topologi Enterprise</h3>
+                        <p class="text-sm text-neutral-400 mb-4">Merancang topologi jaringan enterprise lengkap dengan OSPF, ACL, dan redudansi di Packet Tracer.</p>
+                        <div class="flex items-center gap-2 text-purple-400 text-sm font-medium group-hover:gap-3 transition-all">
+                            <span>Lihat Detail</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CERTIFICATIONS SECTION ==================== -->
+    <section id="sertifikat" class="py-24 md:py-32 relative">
+        <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-tkjGreen/3 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge-tkj mb-6">
+                    <i data-lucide="award" class="w-3 h-3"></i>
+                    <span class="text-[10px] font-medium tracking-wider uppercase">Sertifikat</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
+                    Sertifikasi & Prestasi<span class="text-tkj">.</span>
+                </h2>
+                <p class="text-neutral-400 font-light max-w-2xl mx-auto">
+                    Sertifikat kompetensi dan penghargaan yang telah saya raih selama di TKJ.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="skill-card rounded-2xl bg-white/[0.02] p-6 flex gap-5 reveal">
+                    <div class="w-14 h-14 rounded-xl bg-tkj/10 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="shield-check" class="w-7 h-7 text-tkj"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold mb-1">MikroTik MTCNA</h3>
+                        <p class="text-sm text-neutral-400 mb-2">MikroTik Certified Network Associate — Sertifikat kompetensi konfigurasi router MikroTik.</p>
+                        <div class="flex items-center gap-3">
+                            <span class="text-[10px] font-mono text-tkj">2024</span>
+                            <span class="text-neutral-600">•</span>
+                            <span class="text-[10px] font-mono text-neutral-500">MikroTik Training Center</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card rounded-2xl bg-white/[0.02] p-6 flex gap-5 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-xl bg-tkjGreen/10 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="network" class="w-7 h-7 text-tkjGreen"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold mb-1">LKS Tingkat Kabupaten — TKJ</h3>
+                        <p class="text-sm text-neutral-400 mb-2">Juara 3 Lomba Kompetensi Siswa bidang TKJ tingkat Kabupaten.</p>
+                        <div class="flex items-center gap-3">
+                            <span class="text-[10px] font-mono text-tkjGreen">2024</span>
+                            <span class="text-neutral-600">•</span>
+                            <span class="text-[10px] font-mono text-neutral-500">Dinas Pendidikan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card rounded-2xl bg-white/[0.02] p-6 flex gap-5 reveal">
+                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="server" class="w-7 h-7 text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold mb-1">Admin Server Windows</h3>
+                        <p class="text-sm text-neutral-400 mb-2">Sertifikat kompetensi administrasi Windows Server dari BNSP.</p>
+                        <div class="flex items-center gap-3">
+                            <span class="text-[10px] font-mono text-blue-400">2024</span>
+                            <span class="text-neutral-600">•</span>
+                            <span class="text-[10px] font-mono text-neutral-500">LSP Komputer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card rounded-2xl bg-white/[0.02] p-6 flex gap-5 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="cable" class="w-7 h-7 text-accent"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold mb-1">Teknisi Jaringan Tingkat Menengah</h3>
+                        <p class="text-sm text-neutral-400 mb-2">Sertifikat kompetensi pemasangan dan konfigurasi jaringan lokal dari BNSP.</p>
+                        <div class="flex items-center gap-3">
+                            <span class="text-[10px] font-mono text-accent">2023</span>
+                            <span class="text-neutral-600">•</span>
+                            <span class="text-[10px] font-mono text-neutral-500">LSP Komputer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Left -->
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge-tkj mb-6">
+                        <i data-lucide="mail" class="w-3 h-3"></i>
+                        <span class="text-[10px] font-medium tracking-wider uppercase">Hubungi Saya</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-semibold tracking-tight mb-6">
+                        Mari<br>Terhubung<span class="text-tkj">.</span>
+                    </h2>
+                    <p class="text-neutral-400 font-light leading-relaxed mb-10">
+                        Tertarik untuk berdiskusi tentang jaringan, kolaborasi proyek, atau sekadar berbagi pengetahuan?
+                        Jangan ragu untuk menghubungi saya.
+                    </p>
+
+                    <div class="space-y-5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-tkj/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="mail" class="w-5 h-5 text-tkj"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-0.5">Email</p>
+                                <p class="text-sm font-medium">siswa@pelitanusantara.sch.id</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-tkj/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5 text-tkj"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-0.5">WhatsApp</p>
+                                <p class="text-sm font-medium">+62 812-xxxx-xxxx</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-tkj/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-tkj"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-0.5">Sekolah</p>
+                                <p class="text-sm font-medium">SMK Plus Pelita Nusantara</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 mt-10">
+                        <a href="#" class="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center hover:border-tkj/30 hover:bg-tkj/5 transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4 text-neutral-400"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center hover:border-tkj/30 hover:bg-tkj/5 transition-all">
+                            <i data-lucide="github" class="w-4 h-4 text-neutral-400"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center hover:border-tkj/30 hover:bg-tkj/5 transition-all">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-neutral-400"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center hover:border-tkj/30 hover:bg-tkj/5 transition-all">
+                            <i data-lucide="youtube" class="w-4 h-4 text-neutral-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right — Form -->
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <form id="contactForm" class="terminal rounded-2xl overflow-hidden">
+                        <div class="terminal-header px-5 py-3 flex items-center gap-2">
+                            <div class="terminal-dot bg-red-500"></div>
+                            <div class="terminal-dot bg-yellow-500"></div>
+                            <div class="terminal-dot bg-green-500"></div>
+                            <span class="text-[10px] font-mono text-neutral-500 ml-2">send-message.sh</span>
+                        </div>
+                        <div class="p-6 space-y-5">
+                            <div>
+                                <label class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-2">$ enter_name:</label>
+                                <input type="text" id="nameInput" placeholder="Nama lengkap..." class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white placeholder-neutral-600 focus:outline-none focus:border-tkj/40 focus:bg-tkj/[0.03] transition-all">
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-2">$ enter_email:</label>
+                                <input type="email" id="emailInput" placeholder="email@contoh.com" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white placeholder-neutral-600 focus:outline-none focus:border-tkj/40 focus:bg-tkj/[0.03] transition-all">
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-2">$ enter_subject:</label>
+                                <input type="text" id="subjectInput" placeholder="Topik pesan..." class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white placeholder-neutral-600 focus:outline-none focus:border-tkj/40 focus:bg-tkj/[0.03] transition-all">
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-2">$ enter_message:</label>
+                                <textarea id="messageInput" rows="4" placeholder="Tulis pesan anda..." class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white placeholder-neutral-600 focus:outline-none focus:border-tkj/40 focus:bg-tkj/[0.03] transition-all resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 bg-tkj text-black text-sm font-semibold rounded-xl hover:bg-white transition-colors duration-300 flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                KIRIM PESAN
+                            </button>
+                            <div id="formMessage" class="hidden text-center text-sm font-mono py-2 rounded-lg"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg border border-tkj/30 bg-tkj/5 flex items-center justify-center">
+                        <i data-lucide="network" class="w-4 h-4 text-tkj"></i>
+                    </div>
+                    <div>
+                        <span class="text-sm font-semibold">TKJ<span class="text-tkj">.</span>PORTFOLIO</span>
+                        <p class="text-[9px] font-mono text-neutral-600">XI TKJ 1 — SMK Plus Pelita Nusantara</p>
+                    </div>
+                </div>
+                <div class="terminal px-4 py-2 rounded-lg">
+                    <p class="text-[10px] font-mono text-neutral-500">
+                        <span class="text-tkj">$</span> echo "© 2025 All rights reserved" <span class="text-tkjGreen">→</span> <span class="text-neutral-400">Built with passion for networking</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== TOAST ==================== -->
+    <div id="toast" class="toast fixed bottom-6 right-6 z-[70] px-5 py-3 rounded-xl bg-tkj/10 border border-tkj/30 backdrop-blur-xl">
+        <div class="flex items-center gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 text-tkjGreen"></i>
+            <p id="toastMessage" class="text-sm font-medium text-tkjGreen">Pesan berhasil dikirim!</p>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
